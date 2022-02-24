@@ -1,0 +1,22 @@
+01. Hello Bash Script
+02. Redirect to file
+03. Comments
+04. Condtional Statements
+05. Loops
+06. Script input
+07. Script output
+08. Pipe
+09. String processing
+10. Numbers and arithmetic
+11. Declaresd Command
+12. Arrays
+13. Functions
+14. Files and Directions
+15. Send email via Script
+16. Curl in Script
+17. Professional menus
+18. Wait for filesystem events with inotify
+19. Introduction to grep
+20. Introduction to awk
+21. Introduction to sed
+22. Debugger Bash Script
