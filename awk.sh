@@ -18,7 +18,7 @@ cat temp/passwd | awk 'NR=3'  # print line=3 content
 # ------------------------------------------------------------------
 # redexp fliter
 # ----------------------------------------
-#  `/regex/ ` format
+#  `/regex/` format
 #  ~   : match
 # !~  : unmatch
 # 
@@ -68,6 +68,7 @@ awk -F : '{print "filename="FILENAME",NF="NF",NR="NR}' temp/passwd
 # toupper()    switch to upper case of content
 # tolower()    switch to lower case of content
 # length()     return length of content
+# gensub(/regex/, "\1", 1， $0) get substr of match regex 
 
 awk -F : '{print toupper($1),length($1)}{OFS="\t"}' temp/pass
 
