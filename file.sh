@@ -32,3 +32,14 @@ then
 else
     echo "error find a file name test.txt in temp/text"
 fi
+
+# user -x -w -r in ifstatemnt can check premission of file 
+for file in `ls`
+do
+    if [ -x $file ]
+    then
+        echo -e "$file ......>> is a script"
+    else
+        echo "$file ......>> is a text"
+    fiS
+done
