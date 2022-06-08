@@ -1,5 +1,12 @@
 #! /bin/bash
 
+if [ -d demo ]; then
+  echo "demo directory already exists"
+fi
+if [! -f ok.sh ]; then
+  echo "ok.sh file not exists"
+fi
+
 # Noticing...................................................
 # space is very import in bash script
 # this is must have no when you  declare a variable
@@ -75,7 +82,8 @@ else
 fi
 
 # you can use "-a" express && , "-o"  express || in []
-# 其中 "=" "==" "!=" this is used comparing string, can't use `-eq`..
+#  "=" "==" "!=" this is used comparing string, 
+# can't use `-eq` , `-gt` , `-lt`
 
 gendar="male"
 if [ $age -gt 25 -a "$gendar" == "male" ]
