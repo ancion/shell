@@ -38,7 +38,7 @@ lvcreate -l +100%FREE vgname
 lvdisplay
 
 # 格式化文件系统
-mkfs.ext3|.ext4|.xfs /dev/vgname/lvname
+mkfs -t ext3|ext4|xfs /dev/vgname/lvname
 
 # 挂载文件系统
 mount -t xfs|ext3|ext4 -o defaults /dev/vgname/lvname  /mountpath
