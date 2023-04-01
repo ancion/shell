@@ -21,3 +21,11 @@ do
     echo $1, 当前参数总个数为: $#
     shift #将当前的参数最左侧的剔除掉，后一个变成了第一个
 done
+
+item="odn-main-frame"
+
+if [ ${item} == "odn-main-frame" ]; then 
+  echo "equils"
+else 
+  echo "not"
+fi

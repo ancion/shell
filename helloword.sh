@@ -26,6 +26,7 @@ this is a multicommnets test
 '
 echo  "test multicommnets -->"
 
+:<<EOF
 
-
+EOF
 

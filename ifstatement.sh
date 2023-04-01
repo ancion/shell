@@ -3,7 +3,7 @@
 if [ -d demo ]; then
   echo "demo directory already exists"
 fi
-if [! -f ok.sh ]; then
+if [ ! -f ok.sh ]; then
   echo "ok.sh file not exists"
 fi
 
