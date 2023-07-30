@@ -39,9 +39,18 @@ traceroute --tcp -p 80 -n baidu.com
 # telnet 
 telnet Host port 
 
-#  查看端口是否占用 
-lsof  -i:port
-
+# 
+# lsof : list open file (原意为显示打开的文件), 如果我们不加参数的时候，
+# 就会显示所有的打开的文件，信息列主要是，什么命令打开，用户，文本类型等
+#
+# i [4|6][protocol][@hostname|hostaddr][:service|port]
+# 
+# -i : 指定打开的的 ip 协议, 默认是 `ipv4`, 如果需要 `ipv6` 指定 `-i6`
+#   * `:port` 查看端口是否占用 
+#   * `TCP|UDP` : 找到某种协议打开的文件
+#   * `@hostname` : 找到某个域名打开的文件
+# 
+lsof -i :port
 
 
 :<<EOF

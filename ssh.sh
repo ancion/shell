@@ -1,5 +1,5 @@
 
-:<<!
+:<<EOF
 ---------------------------------------
 # 生成密钥对
 # -t  指定密钥类型
@@ -39,4 +39,4 @@ service sshd restart
 systemctl sshd restart 
 
 
-!
+EOF

@@ -33,7 +33,7 @@ JAVA_OPTS="
 -XX:+PrintGCCause
 -Xloggc:$LOG_PATH/gc.log
 -XX:+HeapDumpOnOutOfMemoryError
--XX:+HeapDumpPath=$LOG_PATH/heapdump
+-XX:HeapDumpPath=$LOG_PATH/heapdump
 -Dfile.encoding=utf-8
 -Dspring.profiles.active=zjprod
 "
