@@ -13,8 +13,8 @@ echo ${args[0]} ${args[1]} ${args[2]}
 #  $@ you typed arguments list 
 #  $* you typed arguments a String
 
-echo $@
-echo $*
+echo "$@"
+echo "$*"
 #  $# number of you arguments
 echo $#
 

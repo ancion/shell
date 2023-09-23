@@ -19,16 +19,15 @@ play 1 3
 
 # 3、return a status of script execute (0-255)
 plus(){
-    echo $@
-    return $1
+    echo "$@"
+    return "$1"
 }
 
 plus 20 30 40 50
 echo $?
 
-dosomething(){
-    if [ $# -eq 0 ] || [ $1="--help" ]
-    then
+dosomething() {
+    if [ "$#" -eq 0 ] || [ "$1" == "--help" ]; then
         echo
         cat << EOF
 参数不匹配  
@@ -37,4 +36,4 @@ EOF
     fi
 }
 
-dosomething
+dosomething "hello"

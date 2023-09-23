@@ -24,7 +24,8 @@
 #         -   表示连续时间段
 #         */n 表示每隔多久执行一次
 # -------------------------------------------------------------------------------------
-
+#
+#   */1 * * * * root echo "hello\n" >> temp/cron_file.log
+#
 # 每隔一分钟向temp/cron_file.log 中追加一个 hello 并换行
 
-*/1 * * * * root echo "hello\n" >> temp/cron_file.log

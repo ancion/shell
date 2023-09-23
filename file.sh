@@ -41,5 +41,5 @@ do
         echo -e "$file ......>> is a script"
     else
         echo "$file ......>> is a text"
-    fiS
+    fi
 done

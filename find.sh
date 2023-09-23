@@ -1,4 +1,4 @@
-:<<!
+:<< EOF
 
 find [path] [options] [excution]
 
@@ -40,8 +40,9 @@ find [path] [options] [excution]
 - [excution] 可选参数 -- 执行命令
   
   -print -- 打印结果(默认输出)
-  -exec  -- 执行命令 格式：`-exec command {} \`
-!
+  -exec  -- 执行命令 格式：`-exec command {} `
+
+EOF
 
 
 # 将 /var/log 中以 .log 结尾的文件，且修改时间在7天之前的文件，删除

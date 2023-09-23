@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 #!/bin/bash
 # stream tool cut
 #  -d  the separation of cut

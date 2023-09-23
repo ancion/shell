@@ -1,7 +1,8 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 # this capital we introduce the loop statement 
 # loop statement we frequently used 
+# ----------------------------------------------------
 # until   [test statements]    do  codeblock
 # while [test statements] do codeblock
 # for((test statement)) do codeblock done
