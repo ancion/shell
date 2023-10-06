@@ -1,5 +1,6 @@
+#!/usr/bin/env bash 
 
-:<<EOF
+: <<'EOF'
 
 curl 命令的使用 ::
 

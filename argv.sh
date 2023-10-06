@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-:<< EOF 
+:<<'EOF'
 
   - 这里描述的启动 shell 进程接受的参数问题
 

@@ -1,4 +1,6 @@
-:<< EOF
+#!/usr/bin/env bash
+
+:<<'EOF'
 
 find [path] [options] [excution]
 

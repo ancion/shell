@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # about file type
 # -f file existence and is a normal file 

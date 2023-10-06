@@ -1,4 +1,4 @@
-#！ /bin/bash
+#!/usr/bin/env bash
 
 # output have two type STDOUT STDERRO
 # to different file

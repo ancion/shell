@@ -1,57 +1,61 @@
 #!/usr/bin/env bash
 
-# awk a stream tool of shell
-#
-# --- integrate syntax, you only write the section that you use
-#
-# awk '
-#     BEGIN { }  execute before read content
-#           { }  execute once every line
-#     END   { }  execute after read total conntent
-#     '     
-#  
-# awk is a pattern action list,the stream could match every pattern,
-# when someone is satisfied with,then action should be execute
+:<<'EOF'
+awk a stream tool of shell
+----------------------------------------------------------------------
+--- integrate syntax, you only write the section that you use
 
-# awk 'pattern1{action1}  pattern2{action2} ...........' filename 
+awk '
+    BEGIN { }  execute before read content
+          { }  execute once every line
+    END   { }  execute after read total conntent
+    '     
+ 
+awk is a pattern action list,the stream could match every pattern,
+when someone is satisfied with,then action should be execute
 
-# -F specify the separate default（" " or tab）
-# -v delcare you own variable
-# -f write all awk commnd in a file, then can use -f reference it 
+awk 'pattern1{action1}  pattern2{action2} ...........' filename 
+
+-F specify the separate default（" " or tab）
+-v delcare you own variable
+-f write all awk commnd in a file, then can use -f reference it 
+
+EOF
 
 cat /etc/passwd > temp/passwd
 
 cat temp/passwd | awk 'NR=3'  # print line=3 content
 
-# ------------------------------------------------------------------
-# regexp fliter
-# ----------------------------------------
-#  `/regex/` format
-#  ~   : match
-# !~   : unmatch
-#
-# awk 'BEGIN{a="100test";if(a~/100/){print "OK"}}'
-# ----------------------------------------
-#  number or string (as ASCII) compare 
-# == !=  : equals or not equals 
-# <  <=  : less than or equals 
-# >  >=  : more than or equals
-# ----------------------------------------
-#  logic algorithem (return 0 = false, 1 = true)
-#  &&    : and 
-#  ||    : or
-#-----------------------------------------
-#  support express
-# +  +=
-# -  -=
-# *  *=
-# /  /=
-# %  %= 
-# ^  ^=  (*** **=) 两种写法的含义是一样的
-# ?:     三目运算
-# in     判断数组中是否存在某个值
-#-------------------------------------------------------------------
+: <<'EOF'
+------------------------------------------------------------------
+regexp fliter
+----------------------------------------
+ `/regex/` format
+ ~   : match
+!~   : unmatch
 
+awk 'BEGIN{a="100test";if(a~/100/){print "OK"}}'
+----------------------------------------
+ number or string (as ASCII) compare 
+== !=  : equals or not equals 
+<  <=  : less than or equals 
+>  >=  : more than or equals
+----------------------------------------
+ logic algorithem (return 0 = false, 1 = true)
+ &&    : and 
+ ||    : or
+----------------------------------------
+ support express
++  +=
+-  -=
+*  *=
+/  /=
+%  %= 
+^  ^=  (*** **=) 两种写法的含义是一样的
+?:     三目运算
+in     判断数组中是否存在某个值
+------------------------------------------------------------------
+EOF
 
 cat temp/passwd | awk '/^a/{print} /^ancion/{pirnt} /^l/{print}'
 cat temp/passwd | awk -F : '/^ancion/{print $3}'
@@ -140,33 +144,37 @@ BEGIN
     }
   }
 '
-# -----------------------------------------------
-# break       :  break current loop 
-# continue    :  terminal current loop, goto next loop  
-# next        :  skip current line, goto next line 
-# exit        :  exit read text，goto END{}, if not exists END{}, end awk command  
+:<<'EOF'
 
-# --------------------------------------------------------------------------
-# Array  是一种数据映射关系，
-# ---------------------------------------
-# 可以以任意数据为 key(可以是多个，类似函数的入参), 然后给 key 映射一个 value
-# 
-# 1) 这里就是给第一列与第二列之间建立了映射
-#
-# awk '{a[$1] = $2}{print a[$1]}' /etc/passwd  
-#
-# awk '{a[1, NR] = $1; a[2,NR] = $2}'
-#
-# 2) 行转列 (适用于每条记录都是相同的长度)
-#
-#     1 3 5 7 9 5
-#     2 4 6 8 0 2
-#     A B C D E O
-#     H I J K L p
-#     w x y F G C
-#
-#  END 里面使用 NF, NR 其实是最后一行的值
-#
+-----------------------------------------------
+break       :  break current loop 
+continue    :  terminal current loop, goto next loop  
+next        :  skip current line, goto next line 
+exit        :  exit read text，goto END{}, if not exists END{}, end awk command  
+
+--------------------------------------------------------------------------
+Array  是一种数据映射关系，
+---------------------------------------
+可以以任意数据为 key(可以是多个，类似函数的入参), 然后给 key 映射一个 value
+
+1) 这里就是给第一列与第二列之间建立了映射
+
+awk '{a[$1] = $2}{print a[$1]}' /etc/passwd  
+
+awk '{a[1, NR] = $1; a[2,NR] = $2}'
+
+2) 行转列 (适用于每条记录都是相同的长度)
+
+   1 3 5 7 9 5
+   2 4 6 8 0 2
+   A B C D E O
+   H I J K L p
+   w x y F G C
+
+END 里面使用 NF, NR 其实是最后一行的值
+
+EOF
+
 awk '{
     for(i=1; i<=NF; i++){
       a[NR,i]=$i

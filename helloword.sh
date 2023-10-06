@@ -15,7 +15,7 @@
 # multicommnets
 # -----------------------------------------------------------------------
 
-:<< !
+:<<'!'
 this is a multicommnets test
 this is a multicommnets test
 this is a multicommnets test
@@ -28,7 +28,7 @@ this is a multicommnets test
 
 echo  "test multicommnets -->"
 
-:<<EOF
+:<<'EOF'
 
 EOF
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # sort
-:<<!
+: <<'EOF'
 ---------------------------------------------------
 sort file         # 对文件内容进行排序，
 command | sort    # 接收某个命令作为排序参数
@@ -10,7 +10,8 @@ command | sort    # 接收某个命令作为排序参数
   > -n sort by number (default by String) 
   > -r sort  reverse
   > -u delete duplicate content
-!
+
+EOF
 
 ls -la | sort -t " " -n -r -k 5
 echo ".............................."
