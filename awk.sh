@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-:<<'EOF'
+: <<'EOF'
 awk a stream tool of shell
 ----------------------------------------------------------------------
 --- integrate syntax, you only write the section that you use
@@ -22,9 +22,9 @@ awk 'pattern1{action1}  pattern2{action2} ...........' filename
 
 EOF
 
-cat /etc/passwd > temp/passwd
+cat /etc/passwd >temp/passwd
 
-cat temp/passwd | awk 'NR=3'  # print line=3 content
+cat temp/passwd | awk 'NR=3' # print line=3 content
 
 : <<'EOF'
 ------------------------------------------------------------------
@@ -59,7 +59,7 @@ EOF
 
 cat temp/passwd | awk '/^a/{print} /^ancion/{pirnt} /^l/{print}'
 cat temp/passwd | awk -F : '/^ancion/{print $3}'
-# then you can control flow  when you can print 
+# then you can control flow  when you can print
 awk -F : '
 BEGIN {sum=0;print "BEGIN"}
   {sum+=$3;print $3" "sum}
@@ -84,22 +84,21 @@ awk -F : '{OFS="\t"}{print $1,$2,$3,$4,$5,$6}' temp/pass
 
 awk -F : '{print "filename="FILENAME",NF="NF",NR="NR}' temp/passwd
 
-# awk built-in function 
+# awk built-in function
 # -------------------------------------------------------------
 # toupper(content:-$0)    switch to upper case of content
 # tolower(content:-$0)    switch to lower case of content
 # length(content:-$0)     return length of content
+# blength(string:-$0)         return string length with byte
 # substr(content:-$1, start:-1, length:-4) sub string
-# gensub(/regex/, "\1", 1，contenet:-$0) get substr of match regex 
-
+# gensub(/regex/, "\1", 1，contenet:-$0) get substr of match regex
+# index(str1,str2)  find 2 in 1 and return position with index start with 1, not exists reuturn 0
 awk -F : '{print toupper($1),length($1)}{OFS="\t"}' temp/pass
-
 
 # -------------------------------------------------------------
 # 忽略大小写匹配
 # -------------------------
 awk 'BEGIN {IGNORECASE=1} /alex/{print}' temp/pass
-
 
 # -------------------------------------------------------------
 # awk  brach structure
@@ -118,7 +117,7 @@ awk -F : '
 
 # awk loop structure
 # ------------------------------------------------
-# 1、while(condition){ handle block } 
+# 1、while(condition){ handle block }
 # ------------------------------------------------
 awk -F [:/] '
   {i=1}{
@@ -130,7 +129,7 @@ awk -F [:/] '
     }
   }
 END{ print j }
-' temp/passwd 
+' temp/passwd
 # -----------------------------------------------
 # 2、do { handle block } while(condition)
 # -----------------------------------------------
@@ -144,7 +143,7 @@ BEGIN
     }
   }
 '
-:<<'EOF'
+: <<'EOF'
 
 -----------------------------------------------
 break       :  break current loop 
@@ -191,4 +190,26 @@ awk '{
       }
     }
   }
-' text1  # text1 内容见上方的数据矩阵
+' text1 # text1 内容见上方的数据矩阵
+
+hyprpm list | awk '
+  BEGIN { b="start" } 
+  {
+    if($0~/Plugin \w+/){ b=$4; a[b]=0}; 
+    if($0~/enabled/){ a[b]=$3}
+  }
+  END { 
+    printf "["
+    i=0;
+    for (key in a) {
+      i++; 
+      printf "{" 
+      printf "\""key"\": " a[key]
+      if (length(a) == i) {
+        printf "}"
+      }else {
+        printf "},"
+      }
+    }
+    printf "]"
+  }'
