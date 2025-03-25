@@ -20,3 +20,9 @@
 # -----------------------------------------------------------------
 # 配置文件
 # /etc/ntp.conf
+
+
+## 开启系统时间自动同步的
+# systemctl start ntpdate
+# systemctl enable ntpdate
+# systemctl status ntpdate

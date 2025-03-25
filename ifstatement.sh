@@ -13,7 +13,7 @@ fi
 count=10
 # There must has a space when you use brackets
 # You can use [] around you test statement, then you must use following express
-# this expr is only support number and number, can't compare string exclude numner string
+# this expr is only support number and number, can't compare string exclude number string
 
 #  -lt   means   less than
 #  -le   means   less than  or equals
@@ -42,7 +42,7 @@ fi
 #  <=
 #  ==
 # Noticing..................................................
-# when you statement is mathing a statement ahead another,
+# when you statement is matching a statement ahead another,
 # then behind statement not working
 echo "(2).................................................."
 if (( $count <= 10 ))
