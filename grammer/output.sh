@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# output have two type STDOUT STDERRO
+# output have two type STDOUT STDERR
 # to different file
 ls -al 1>success.log 2>error.log
 

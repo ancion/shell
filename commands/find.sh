@@ -48,8 +48,8 @@ EOF
 
 
 # 将 /var/log 中以 .log 结尾的文件，且修改时间在7天之前的文件，删除
-find /var/log -name '*.log'  -mtime +7 -exec rm -f {} \;
+# find /var/log -name '*.log' -mtime +7 -exec rm -f {} \;
 
 
 # 搜索`/etc`下的文件（非目录）,文件名以 `.conf` 结尾的文件,文件大于 1K,将这些文件复制到 /root/conf
-find /etc -type -f -name '*.conf' -size +1k -mtime -1 -exec cp {} /tmp/conf \;
+# find /etc -type -f -name '*.conf' -size +1k -mtime -1 -exec cp {} /tmp/conf \;
