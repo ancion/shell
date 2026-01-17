@@ -30,6 +30,7 @@ UserKnownHostsFile /dev/null
 /etc/sshd_config 文件中其他配置解析
 
 # PermitRootLogin 
+# PasswordAuthentication no
 
 # 该选项默认不设置或者设置为 yes 时候，允许 ssh 使用 root 登录
 # 显示配置为 no 的 时候禁止使用 ssh root 账户登录，
@@ -38,6 +39,8 @@ UserKnownHostsFile /dev/null
 # 重启 sshd 服务
 service sshd restart 
 systemctl sshd restart 
+
+
 
 
 EOF
